@@ -1,0 +1,3 @@
+<ul class="comment-list" [class._is_single]="comments.length === 1">
+  <app-comment *ngFor="let comment of comments" [comment]="comment.data" [replies]="comment.data.replies"></app-comment>
+</ul>

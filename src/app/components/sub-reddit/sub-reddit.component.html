@@ -1,0 +1,8 @@
+Limit: <button (click)="changeLimit(5)">5</button> <button (click)="changeLimit(10)">10</button> <button (click)="changeLimit(15)">15</button>
+
+<div [routerLink]="entry.data.permalink" *ngFor="let entry of (entries || {}).children">
+  {{entry.data.title}}
+</div>
+
+<button type="button" (click)="prevEntry()">Prev</button>
+<button type="button" (click)="nextEntry()">Next</button>
