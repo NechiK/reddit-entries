@@ -1,7 +1,20 @@
 Limit: <button (click)="changeLimit(5)">5</button> <button (click)="changeLimit(10)">10</button> <button (click)="changeLimit(15)">15</button>
 
-<div [routerLink]="entry.data.permalink" *ngFor="let entry of (entries || {}).children">
-  {{entry.data.title}}
+<div class="entry" [routerLink]="entry.data.permalink" *ngFor="let entry of (entries || {}).children">
+  <div class="entry__score">{{entry.data.score}}</div>
+  <div class="entry__content">
+    <div class="entry__author">
+      Author: {{entry.data.author}}
+    </div>
+    <div class="entry__date">{{entry.data.created * 1000 | date:'MMMM d, y'}}</div>
+    <div class="entry__title">{{entry.data.title}}</div>
+    <div *ngIf="entry.data.selftext">
+      <div class="entry__body">{{entry.data.selftext}}</div>
+    </div>
+    <div class="entry__controls">
+      <span> {{entry.data.num_comments}} Comments</span>
+    </div>
+  </div>
 </div>
 
 <button type="button" (click)="prevEntry()">Prev</button>
