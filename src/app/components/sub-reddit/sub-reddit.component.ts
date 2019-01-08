@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {EntryService} from '../../services/entry.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -12,11 +12,16 @@ export class SubRedditComponent implements OnInit, OnDestroy {
   entries;
   entriesLimit = 10;
   entriesSubscription: Subscription;
+  subredditName: string;
+
   private lastParams;
 
   constructor(private entryService: EntryService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.subredditName = params.get('subredditName');
+    });
     this.getEntries({
       limit: this.entriesLimit
     });
@@ -50,7 +55,7 @@ export class SubRedditComponent implements OnInit, OnDestroy {
 
   getEntries(params = {}) {
     this.lastParams = params;
-    this.entriesSubscription = this.entryService.getEntries(this.route.snapshot.params.subredditName, params).subscribe(result => {
+    this.entriesSubscription = this.entryService.getEntries(this.subredditName, params).subscribe(result => {
       this.entries = result.data;
     });
   }
