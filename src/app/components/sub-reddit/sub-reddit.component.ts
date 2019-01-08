@@ -12,6 +12,7 @@ export class SubRedditComponent implements OnInit, OnDestroy {
   entries;
   entriesLimit = 10;
   entriesSubscription: Subscription;
+  count = 0;
   subredditName: string;
 
   private lastParams;
@@ -38,9 +39,11 @@ export class SubRedditComponent implements OnInit, OnDestroy {
       return;
     }
 
+    this.count += this.entries.dist;
+
     this.getEntries({
       limit: this.entriesLimit,
-      count: this.entries.dist,
+      count: this.count,
       after: this.entries.after
     });
   }
@@ -50,9 +53,11 @@ export class SubRedditComponent implements OnInit, OnDestroy {
       return;
     }
 
+    this.count -= this.entries.dist;
+
     this.getEntries({
       limit: this.entriesLimit,
-      count: this.entries.dist,
+      count: this.count,
       before: this.entries.before
     });
   }

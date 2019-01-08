@@ -1,8 +1,8 @@
 Limit: <button (click)="changeLimit(5)">5</button> <button (click)="changeLimit(10)">10</button> <button (click)="changeLimit(15)">15</button>
 
 <div>
-  <button class="pagination-button" [disabled]="this.entries.before === null" type="button" (click)="prevEntry()">Prev</button>
-  <button class="pagination-button" [disabled]="this.entries.after === null" type="button" (click)="nextEntry()">Next</button>
+  <button class="pagination-button" [disabled]="entries.before === null" type="button" (click)="prevEntry()">Prev</button>
+  <button class="pagination-button" [disabled]="entries.after === null" type="button" (click)="nextEntry()">Next</button>
 </div>
 
 <div style="width: 500px;">
@@ -11,5 +11,5 @@ Limit: <button (click)="changeLimit(5)">5</button> <button (click)="changeLimit(
   </div>
 </div>
 
-<button class="pagination-button" [disabled]="this.entries.before === null" type="button" (click)="prevEntry()">Prev</button>
-<button class="pagination-button" [disabled]="this.entries.after === null" type="button" (click)="nextEntry()">Next</button>
+<button class="pagination-button" [disabled]="entries.before === null" type="button" (click)="prevEntry()">Prev</button>
+<button class="pagination-button" [disabled]="entries.after === null" type="button" (click)="nextEntry()">Next</button>
