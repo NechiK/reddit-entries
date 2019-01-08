@@ -1,10 +1,5 @@
 <!--Limit: <button (click)="changeLimit(5)">5</button> <button (click)="changeLimit(10)">10</button> <button (click)="changeLimit(15)">15</button>-->
 
-<div>
-  <button class="pagination-button" [disabled]="entries.before === null" type="button" (click)="prevEntry()">Prev</button>
-  <button class="pagination-button" [disabled]="entries.after === null" type="button" (click)="nextEntry()">Next</button>
-</div>
-
 <div style="width: 500px;">
   <div [routerLink]="entry.data.permalink" *ngFor="let entry of entries?.children">
     <app-entry [entry]="entry.data"></app-entry>
