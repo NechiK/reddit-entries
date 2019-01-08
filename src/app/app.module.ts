@@ -11,6 +11,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SubRedditWrapperComponent } from './components/sub-reddit-wrapper/sub-reddit-wrapper.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { EntryComponent } from './components/entry/entry.component';
+import { ShortScorePipe } from './pipes/short-score.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
     NotFoundComponent,
     SubRedditWrapperComponent,
     CommentComponent,
-    CommentListComponent
+    CommentListComponent,
+    EntryComponent,
+    ShortScorePipe
   ],
   imports: [
     BrowserModule, HttpClientModule,

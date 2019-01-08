@@ -1,3 +1,4 @@
-{{entry.title}}
+<app-entry [entry]="entry" [isSingle]="true"></app-entry>
+
 <h2>Comments</h2>
-<app-comment-list [comments]="comments"></app-comment-list>
+<app-comment-list *ngIf="comments.length > 0" [comments]="comments"></app-comment-list>

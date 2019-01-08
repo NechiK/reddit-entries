@@ -1,4 +1,4 @@
-<li>
+<li class="comment">
   {{comment.body}}
   <app-comment-list *ngIf="replies && replies?.kind !== 'more'" [comments]="replies.data.children"></app-comment-list>
 </li>

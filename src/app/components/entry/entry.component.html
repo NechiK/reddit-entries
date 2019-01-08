@@ -1,0 +1,21 @@
+<div class="entry" [class._is_single]="isSingle">
+  <div class="entry__score">{{entry.score | shortScore}}</div>
+  <div class="entry__content">
+    <div class="entry__author">
+      Author: {{entry.author}}
+    </div>
+    <div class="entry__date">{{entry.created * 1000 | date:'MMMM d, y'}}</div>
+    <div class="entry__title">{{entry.title}}</div>
+    <div *ngIf="entry.thumbnail && entry.thumbnail !== 'self'" class="entry__title">
+      <img [src]="entry.thumbnail" [alt]="entry.title" width="140">
+    </div>
+    <div *ngIf="entry.selftext_html">
+      <div class="entry__body">
+      {{entry.selftext}}
+    </div>
+    </div>
+    <div class="entry__controls">
+      <span> {{entry.num_comments}} Comments</span>
+    </div>
+  </div>
+</div>

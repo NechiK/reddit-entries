@@ -1,9 +1,15 @@
 .subreddit {
   padding: 15px 20px;
-  color: #fff;
+  color: #000000;
   font-size: 18px;
   text-align: center;
   width: 25%;
   display: inline-block;
   margin: 5px 10px;
+  border: 1px solid #aaaaaa;
+
+  &:hover {
+    cursor: pointer;
+    border-color: #000000;
+  }
 }
