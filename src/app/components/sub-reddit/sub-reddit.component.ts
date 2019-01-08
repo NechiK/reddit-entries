@@ -15,7 +15,7 @@ export class SubRedditComponent implements OnInit, OnDestroy {
   count = 0;
   subredditName: string;
 
-  private lastParams;
+  // private lastParams;
 
   constructor(private entryService: EntryService, private route: ActivatedRoute) { }
 
@@ -28,11 +28,11 @@ export class SubRedditComponent implements OnInit, OnDestroy {
     });
   }
 
-  changeLimit(limit) {
-    this.lastParams.limit = limit;
-    this.entriesLimit = limit;
-    this.getEntries(this.lastParams);
-  }
+  // changeLimit(limit) {
+  //   this.lastParams.limit = limit;
+  //   this.entriesLimit = limit;
+  //   this.getEntries(this.lastParams);
+  // }
 
   nextEntry() {
     if (this.entries.after === null)  {
@@ -63,7 +63,7 @@ export class SubRedditComponent implements OnInit, OnDestroy {
   }
 
   getEntries(params = {}) {
-    this.lastParams = params;
+    // this.lastParams = params;
     this.entriesSubscription = this.entryService.getEntries(this.subredditName, params).subscribe(result => {
       this.entries = result.data;
     });
