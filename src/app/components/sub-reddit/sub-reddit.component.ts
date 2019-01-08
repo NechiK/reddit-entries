@@ -40,15 +40,19 @@ export class SubRedditComponent implements OnInit, OnDestroy {
 
     this.getEntries({
       limit: this.entriesLimit,
+      count: this.entries.dist,
       after: this.entries.after
     });
   }
 
   prevEntry() {
-    // 'before' property always returns from API as null
-    // so this code will just return to first page when user clicks 'Prev' button
+    if (this.entries.before === null)  {
+      return;
+    }
+
     this.getEntries({
       limit: this.entriesLimit,
+      count: this.entries.dist,
       before: this.entries.before
     });
   }
