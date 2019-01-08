@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SubRedditService} from '../../services/sub-reddit.service';
 import {Observable} from 'rxjs';
-import {pluck} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-sub-reddit-list',
@@ -15,7 +15,9 @@ export class SubRedditListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subReddits$ = this.subRedditService.getSubReddits().pipe(pluck('data', 'children'));
+    this.subReddits$ = this.subRedditService.getSubReddits().pipe(map(result => {
+      return result.data.children;
+    }));
   }
 
 
